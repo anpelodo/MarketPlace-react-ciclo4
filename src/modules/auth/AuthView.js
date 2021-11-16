@@ -26,6 +26,10 @@ export default function AuthView() {
         <Route path={`${path}/register`}>
           <AuthRegister />
         </Route>
+
+        <Route path={`${path}/*`}>
+          <Redirect to="404-not-found" />
+        </Route>
       </Switch>
     </React.Fragment>
   );
