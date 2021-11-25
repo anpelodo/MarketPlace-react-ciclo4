@@ -1,3 +1,21 @@
+@import "~bootstrap/scss/functions";
+
+//Customizando Bootstrap
+$primary: #ff7a00;
+$secondary: #ffbd80;
+// $success: $green;
+// $info: $cyan;
+// $warning: $yellow;
+// $danger: $red;
+// $light: $gray-100;
+// $dark: $gray-900;
+
+@import "~bootstrap/scss/bootstrap";
+
 .App {
   text-align: center;
+}
+
+.color-wh {
+  color: white;
 }

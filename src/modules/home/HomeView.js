@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
+import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom';
 
-import HomeHeader from "./components/HomeHeader";
-import CartView from "./views/CartView";
-import ProductView from "./views/ProductView";
-import StoreView from "./views/StoreView";
+import HomeHeader from './components/HomeHeader';
+import CartView from './views/CartView';
+import ProductView from './views/ProductView';
+import StoreView from './views/StoreView';
+import HomeFooter from './components/HomeFooter';
 
 export default function HomeView(props) {
   let { path } = useRouteMatch();
@@ -30,9 +31,11 @@ export default function HomeView(props) {
         </Route>
 
         <Route path={`${path}/*`}>
-          <Redirect to="/404-not-found" />
+          <Redirect to='/404-not-found' />
         </Route>
       </Switch>
+
+      <HomeFooter />
     </React.Fragment>
   );
 }
