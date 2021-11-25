@@ -1,12 +1,11 @@
-import React from "react";
-import AdminHeader from "./components/AdminHeader";
+import React from 'react';
+import AdminHeader from './components/AdminHeader';
 import Table from 'react-bootstrap/Table';
 // import Button from "@restart/ui/esm/Button";
 
-import  ModalEdit from './components/ModalEdit';
+import ModalEdit from './components/ModalEdit';
 import ModalAdd from './components/ModalAdd';
 import ModalDelete from './components/ModalDelete';
-
 
 export default function AdminView() {
   return (
@@ -22,7 +21,7 @@ export default function AdminView() {
               <th>Categoria</th>
               <th>Stock</th>
               <th>Precio</th>
-              <th>  </th>
+              <th> </th>
               <th> </th>
             </tr>
           </thead>
@@ -33,14 +32,16 @@ export default function AdminView() {
               <td>Otto</td>
               <td>@mdo</td>
               <td>@mdo</td>
-              <td><ModalEdit  /></td>
-              <td><ModalDelete /></td>
+              <td>
+                <ModalEdit />
+              </td>
+              <td>
+                <ModalDelete />
+              </td>
             </tr>
           </tbody>
         </Table>
         <ModalAdd />
-        
-       
       </div>
     </div>
   );

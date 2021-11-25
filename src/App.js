@@ -1,17 +1,17 @@
-import React from "react";
-import "./App.scss";
+import React from 'react';
+import './App.scss';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import HomeView from "./modules/home/HomeView";
-import AuthView from "./modules/auth/AuthView";
-import AdminView from "./modules/admin/AdminView";
-import NoMatch from "./modules/common/NoMatch";
+import HomeView from './modules/home/HomeView';
+import AuthView from './modules/auth/AuthView';
+import AdminView from './modules/admin/AdminView';
+import NoMatch from './modules/common/NoMatch';
 
 export default function App() {
   return (

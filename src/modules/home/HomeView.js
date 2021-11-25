@@ -31,7 +31,7 @@ export default function HomeView(props) {
         </Route>
 
         <Route path={`${path}/*`}>
-          <Redirect to='/404-not-found' />
+          <Redirect to="/404-not-found" />
         </Route>
       </Switch>
 
