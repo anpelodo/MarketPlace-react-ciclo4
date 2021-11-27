@@ -1,5 +1,11 @@
 import React from 'react';
-import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Redirect,
+  useRouteMatch,
+  useLocation,
+} from 'react-router-dom';
 
 import AuthHeader from './components/AuthHeader';
 import AuthHome from './views/AuthHome';
@@ -9,13 +15,13 @@ import Footer from '../common/Footer';
 
 export default function AuthView() {
   let { path } = useRouteMatch();
+  let { pathname } = useLocation();
 
   return (
     <div className="content-footer">
       <div>
-        <AuthHeader />
+        <AuthHeader login={`${path}/login` === pathname} />
         <h2>Auth View</h2>
-
         <Switch>
           <Route exact path={`${path}`}>
             <AuthHome />
