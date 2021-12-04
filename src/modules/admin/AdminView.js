@@ -22,7 +22,7 @@ export default function AdminView()  {
     });
   }, []);
 
-  console.log(post);
+  // console.log(post);
 
 
 
