@@ -48,7 +48,7 @@ export default function ModalEdit(props) {
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicCodigo">
               <Form.Label>Codigo</Form.Label>
-              <Form.Control type="text"  name="codigo" placeholder="Codigo" defaultValue={props.id} />
+              <Form.Control type="text"  name="codigo" placeholder="Codigo" disabled={true} defaultValue={props.id} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicNombre">
