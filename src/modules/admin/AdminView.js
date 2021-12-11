@@ -58,7 +58,7 @@ export default function AdminView()  {
                         <ModalEdit id={item._id} nombre={item.nombre}  categoria={item.categoria} stock={item.stock}  precio={item.precio} img={item.img} descripcion={item.descripcion} />
                       </td>
                       <td>
-                        <ModalDelete />
+                        <ModalDelete id={item._id} />
                       </td>
                     </tr>
             )}

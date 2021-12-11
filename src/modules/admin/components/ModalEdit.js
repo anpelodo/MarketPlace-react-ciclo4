@@ -82,17 +82,12 @@ export default function ModalEdit(props) {
             </Form.Group>
 
             <Button variant="primary" type="submit">
-              Submit
+              guardar
             </Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+         
         </Modal.Footer>
       </Modal>
     </>

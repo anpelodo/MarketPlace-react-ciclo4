@@ -115,17 +115,12 @@ export default function ModalAdd() {
             </Form.Group>
 
             <Button variant="primary" type="submit" onClick={handleClose}>
-              Submit
+              Add product
             </Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+         
         </Modal.Footer>
       </Modal>
     </>
