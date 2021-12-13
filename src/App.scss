@@ -10,6 +10,17 @@ $info: #999999;
 $light: #f6f6f6;
 // $dark: $gray-900;
 
+// Actualizando la forma de visualizar los formularios
+$input-border-color: $primary;
+$input-border-radius: 0;
+$input-border-radius-sm: 0;
+$input-border-radius-lg: 0;
+
+// Actualizando la forma de visualizar los botones
+$btn-border-radius: 0;
+$btn-border-radius-sm: 0;
+$btn-border-radius-lg: 0;
+
 @import "~bootstrap/scss/bootstrap";
 
 .App {
