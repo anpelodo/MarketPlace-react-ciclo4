@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, Button, Form } from 'react-bootstrap';
+import { FormGroup, Button, Form, InputGroup } from 'react-bootstrap';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -40,7 +40,7 @@ export default function AuthRegister() {
   });
 
   return (
-    <div className="d-flex w-100 justify-content-center">
+    <div className="d-flex w-100 justify-content-center py-3">
       <div className="mw-25">
         <h3 className="pb-4">Crear una cuenta es gratis.</h3>
         <Formik
@@ -67,62 +67,88 @@ export default function AuthRegister() {
             <Form onSubmit={handleSubmit}>
               {console.log(values)}
               <FormGroup className="row gap-3">
-                <Form.Control
-                  name="nombre"
-                  type="text"
-                  placeholder="Nombre"
-                  size="lg"
-                  className="col-6 col-md"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.nombre}
-                  isInvalid={touched.nombre && errors.nombre}
-                />
-                <Form.Control
-                  name="apellido"
-                  type="text"
-                  placeholder="Apellido"
-                  size="lg"
-                  className="col-6 col-md"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.apellido}
-                  isInvalid={touched.apellido && errors.apellido}
-                />
+                <InputGroup hasValidation className="col-6 col-md p-0">
+                  <Form.Control
+                    name="nombre"
+                    type="text"
+                    placeholder="Nombre"
+                    size="lg"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.nombre}
+                    isInvalid={touched.nombre && errors.nombre}
+                  />
+
+                  <Form.Control.Feedback type="invalid">
+                    {errors.nombre}
+                  </Form.Control.Feedback>
+                </InputGroup>
+
+                <InputGroup hasValidation className="col-6 col-md p-0">
+                  <Form.Control
+                    name="apellido"
+                    type="text"
+                    placeholder="Apellido"
+                    size="lg"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.apellido}
+                    isInvalid={touched.apellido && errors.apellido}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.apellido}
+                  </Form.Control.Feedback>
+                </InputGroup>
               </FormGroup>
+
               <FormGroup className="row gap-3 pt-3">
-                <Form.Control
-                  name="usuario"
-                  type="text"
-                  placeholder="Nombre de usuario"
-                  size="lg"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.usuario}
-                  isInvalid={touched.usuario && errors.usuario}
-                />
+                <InputGroup hasValidation className="p-0">
+                  <Form.Control
+                    name="usuario"
+                    type="text"
+                    placeholder="Nombre de usuario"
+                    size="lg"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.usuario}
+                    isInvalid={touched.usuario && errors.usuario}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.usuario}
+                  </Form.Control.Feedback>
+                </InputGroup>
 
-                <Form.Control
-                  name="email"
-                  type="text"
-                  placeholder="Correo-e"
-                  size="lg"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  isInvalid={touched.email && errors.email}
-                />
+                <InputGroup hasValidation className="p-0">
+                  <Form.Control
+                    name="email"
+                    type="text"
+                    placeholder="Correo-e"
+                    size="lg"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    isInvalid={touched.email && errors.email}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                  </Form.Control.Feedback>
+                </InputGroup>
 
-                <Form.Control
-                  name="password"
-                  type="password"
-                  placeholder="Contraseña"
-                  size="lg"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                  isInvalid={touched.password && errors.password}
-                />
+                <InputGroup hasValidation className="p-0">
+                  <Form.Control
+                    name="password"
+                    type="password"
+                    placeholder="Contraseña"
+                    size="lg"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                    isInvalid={touched.password && errors.password}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.password}
+                  </Form.Control.Feedback>
+                </InputGroup>
 
                 <Button type="submit" className="text-white fw-bolder">
                   Continuar
