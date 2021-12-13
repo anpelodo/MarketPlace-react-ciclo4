@@ -55,7 +55,7 @@ export default function ModalAdd() {
   return (
     <>
       <Button
-        className="color-wh fw-bold"
+        className="text-white fw-bold"
         variant="primary"
         onClick={handleShow}
       >
@@ -145,7 +145,12 @@ export default function ModalAdd() {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={handleClose}>
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={handleClose}
+              className="text-white fw-bold"
+            >
               Add product
             </Button>
           </Form>

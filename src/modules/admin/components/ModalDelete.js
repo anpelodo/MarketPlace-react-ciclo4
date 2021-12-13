@@ -38,10 +38,18 @@ export default function ModalDelete(props) {
         </Modal.Header>
         <Modal.Body>¿Desea eliminar este producto {props.id}?</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            variant="secondary"
+            onClick={handleClose}
+            className="text-white fw-bold"
+          >
             Cancelar
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button
+            variant="primary"
+            onClick={handleSubmit}
+            className="text-white fw-bold"
+          >
             Eliminar
           </Button>
         </Modal.Footer>

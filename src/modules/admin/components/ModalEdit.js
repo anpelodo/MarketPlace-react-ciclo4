@@ -128,8 +128,12 @@ export default function ModalEdit(props) {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-              guardar
+            <Button
+              variant="primary"
+              type="submit"
+              className="text-white fw-bold"
+            >
+              Guardar
             </Button>
           </Form>
         </Modal.Body>
