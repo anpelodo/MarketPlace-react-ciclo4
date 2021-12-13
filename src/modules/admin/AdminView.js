@@ -12,7 +12,9 @@ import { useAuth } from '../hooks/useAuth';
 
 const baseURL = 'http://localhost:3002/api/product/list';
 
-export default function AdminView()  {
+export default function AdminView() {
+  const { token } = useAuth().getAuthData();
+
   const [post, setPost] = useState([]);
 
   React.useEffect(() => {
@@ -22,14 +24,12 @@ export default function AdminView()  {
     });
   }, []);
 
-  // console.log(post);
-
   return (
-    <div>
-      <div className="container">
-        <AdminHeader />
-        <h2>Admin View</h2>
-        <Table striped bordered hover>
+    <div className="d-flex flex-column align-items-center">
+      <AdminHeader />
+
+      <div className="w-75">
+        <Table striped bordered hover className="mt-5">
           <thead>
             <tr>
               <th>Codigo</th>
@@ -59,17 +59,18 @@ export default function AdminView()  {
                       precio={item.precio}
                       img={item.img}
                       descripcion={item.descripcion}
+                      token={token}
                     />
                   </td>
                   <td>
-                    <ModalDelete id={item._id} />
+                    <ModalDelete id={item._id} token={token} />
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </Table>
-        <ModalAdd />
+        <ModalAdd token={token} />
       </div>
     </div>
   );

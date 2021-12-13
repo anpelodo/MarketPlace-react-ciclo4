@@ -5,20 +5,24 @@ import axios from 'axios';
 import { useState } from 'react';
 
 export default function ModalDelete(props) {
+  const token = props.token;
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // e.preventDefault();
     // console.log("iddd"+ props.id);
 
     const baseURLadd = 'http://localhost:3002/api/product/';
-    axios.delete(baseURLadd + props.id).then((res) => {
-      //  console.log(res);
-      // console.log(res.data);
-    });
+    await axios
+      .delete(baseURLadd + props.id, { headers: { token } })
+      .then((res) => {
+        //  console.log(res);
+        // console.log(res.data);
+      });
     handleClose();
   };
 

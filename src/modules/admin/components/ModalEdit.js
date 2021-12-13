@@ -4,7 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import axios from 'axios';
+
 export default function ModalEdit(props) {
+  const token = props.token;
+
   // console.log(props);
   const [show, setShow] = useState(false);
   const [form, setForm] = useState({});
@@ -18,15 +21,19 @@ export default function ModalEdit(props) {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // e.preventDefault();
     // console.log("iddd"+ props.id);
 
     const baseURLadd = 'http://localhost:3002/api/product/';
-    axios.put(baseURLadd + props.id, { ...form }).then((res) => {
-      //  console.log(res);
-      console.log(res.data);
-    });
+    await axios
+      .put(baseURLadd + props.id, { ...form }, { headers: { token } })
+      .then((res) => {
+        //  console.log(res);
+        console.log(res.data);
+      });
+
+    handleClose();
   };
   return (
     <>
