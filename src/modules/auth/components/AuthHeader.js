@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Link, useRouteMatch } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import { Container } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
 
 export default function AuthHeader(props) {
   let { path } = useRouteMatch();
