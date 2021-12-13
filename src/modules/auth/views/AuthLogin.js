@@ -27,10 +27,10 @@ export default function AuthLogin() {
         setBadAuth(false);
         resetForm();
 
-        if (!state) {
-          history.push('/');
+        if (state && data.user.rol === 'ADMIN') {
+          history.push(state.from.pathname);
         } else {
-          history.push(state);
+          history.push('/');
         }
       })
       .catch((error) => {
@@ -42,7 +42,7 @@ export default function AuthLogin() {
         }
 
         if (status >= 500) {
-          console.error('Error on AuthLogin:', error.response);
+          console.error('Error on AuthLogin:', error);
           alert(data.msg, 'error:', data.error);
         }
       });

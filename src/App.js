@@ -12,6 +12,7 @@ import HomeView from './modules/home/HomeView';
 import AuthView from './modules/auth/AuthView';
 import AdminView from './modules/admin/AdminView';
 import NoMatch from './modules/common/NoMatch';
+import ProtectedRoute from './modules/common/ProtectedRoute';
 
 export default function App() {
   return (
@@ -29,9 +30,7 @@ export default function App() {
           <AuthView />
         </Route>
 
-        <Route path="/admin">
-          <AdminView />
-        </Route>
+        <ProtectedRoute path="/admin" component={AdminView} />
 
         <Route path="/404-not-found">
           <NoMatch />
