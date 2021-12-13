@@ -4,20 +4,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import axios from 'axios';
-const baseURL = "http://localhost:3002/api/product/list";
+const baseURL = 'http://localhost:3002/api/product/list';
 
 export default function ModalAdd() {
-
-
-  
   const [show, setShow] = useState(false);
 
   const [form, setForm] = useState({});
 
   const [post, setPost] = useState([]);
 
-
- 
   // const [codigo, setCodigo] = useState("");
   // const [nombre, setNombre] = useState("");
   // const [precio, setPrecio] = useState("");
@@ -25,43 +20,37 @@ export default function ModalAdd() {
   // const [stock, setStock] = useState("");
   // const [img, setImg] = useState("");
   // const [desc, setDesc] = useState("");
-  const getProducts = () =>{
-   
-      axios.get(baseURL).then((response) => {
-        console.log("data");
-        console.log(response.data);
-        setPost(response.data);
-      });
-    };
+  const getProducts = () => {
+    axios.get(baseURL).then((response) => {
+      console.log('data');
+      console.log(response.data);
+      setPost(response.data);
+    });
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setForm({
       ...form,
-      [e.target.name]:e.target.value,
-
+      [e.target.name]: e.target.value,
     });
-  }
-  
-  const handleSubmit = e =>{
+  };
+
+  const handleSubmit = (e) => {
     // e.preventDefault();
-    
-    const baseURLadd = "http://localhost:3002/api/product/add";
-    axios.post(baseURLadd,{...form}).then(res => {
+
+    const baseURLadd = 'http://localhost:3002/api/product/add';
+    axios.post(baseURLadd, { ...form }).then((res) => {
       console.log(res);
       console.log(res.data);
-    })
-  
-  getProducts();  
-    
-    
-    alert("El formulario se ha enviado");
-    
-  }
-  
-  
+    });
+
+    getProducts();
+
+    alert('El formulario se ha enviado');
+  };
 
   return (
     <>
@@ -81,37 +70,79 @@ export default function ModalAdd() {
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicCodigo">
               <Form.Label>Codigo</Form.Label>
-              <Form.Control type="text" name="codigo" placeholder="Codigo" value={form.codigo} onChange={handleChange}/>
+              <Form.Control
+                type="text"
+                name="codigo"
+                placeholder="Codigo"
+                value={form.codigo}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicNombre">
               <Form.Label>Nombre del producto</Form.Label>
-              <Form.Control type="text" name="nombre" placeholder="Nombre del producto"  value={form.nombre} onChange={handleChange}/>
+              <Form.Control
+                type="text"
+                name="nombre"
+                placeholder="Nombre del producto"
+                value={form.nombre}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPrecio">
               <Form.Label>Precio</Form.Label>
-              <Form.Control type="number" name="precio" placeholder="Precio" value={form.precio} onChange={handleChange}/>
+              <Form.Control
+                type="number"
+                name="precio"
+                placeholder="Precio"
+                value={form.precio}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicCategoria">
               <Form.Label>Categoria</Form.Label>
-              <Form.Control type="text" name="categoria" placeholder="Categoria" value={form.categoria} onChange={handleChange}/>
+              <Form.Control
+                type="text"
+                name="categoria"
+                placeholder="Categoria"
+                value={form.categoria}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicStock">
               <Form.Label>Stock</Form.Label>
-              <Form.Control type="number" name="stock" placeholder="Stock" value={form.stock} onChange={handleChange}/>
+              <Form.Control
+                type="number"
+                name="stock"
+                placeholder="Stock"
+                value={form.stock}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicImagen">
               <Form.Label>Añadir imagen</Form.Label>
-              <Form.Control type="text" name="img" placeholder="Añadir imagen" value={form.img} onChange={handleChange}/>
+              <Form.Control
+                type="text"
+                name="img"
+                placeholder="Añadir imagen"
+                value={form.img}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicDescripcion">
               <Form.Label>Descripción</Form.Label>
-              <Form.Control type="text" name="desc" placeholder="Descipcion" value={form.desc} onChange={handleChange}/>
+              <Form.Control
+                type="text"
+                name="desc"
+                placeholder="Descipcion"
+                value={form.desc}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Button variant="primary" type="submit" onClick={handleClose}>
@@ -119,9 +150,7 @@ export default function ModalAdd() {
             </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-         
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );

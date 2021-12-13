@@ -10,18 +10,17 @@ export default function ModalDelete(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = e =>{
+  const handleSubmit = (e) => {
     // e.preventDefault();
     // console.log("iddd"+ props.id);
 
-   
-   const baseURLadd = "http://localhost:3002/api/product/";
-   axios.delete(baseURLadd+props.id).then(res => {
-    //  console.log(res);
-    // console.log(res.data);
-   });
-   handleClose();
-  }
+    const baseURLadd = 'http://localhost:3002/api/product/';
+    axios.delete(baseURLadd + props.id).then((res) => {
+      //  console.log(res);
+      // console.log(res.data);
+    });
+    handleClose();
+  };
 
   return (
     <>

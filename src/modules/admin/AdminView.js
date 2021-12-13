@@ -1,4 +1,3 @@
-
 import AdminHeader from './components/AdminHeader';
 import Table from 'react-bootstrap/Table';
 // import Button from "@restart/ui/esm/Button";
@@ -9,8 +8,9 @@ import ModalDelete from './components/ModalDelete';
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
-const baseURL = "http://localhost:3002/api/product/list";
+const baseURL = 'http://localhost:3002/api/product/list';
 
 export default function AdminView()  {
   const [post, setPost] = useState([]);
@@ -23,8 +23,6 @@ export default function AdminView()  {
   }, []);
 
   // console.log(post);
-
-
 
   return (
     <div>
@@ -44,31 +42,31 @@ export default function AdminView()  {
             </tr>
           </thead>
           <tbody>
-          {
-
-            post.map((item, i) =>{return(
-
-                    <tr>
-                      <td key={i}> {item._id}</td>
-                      <td> {item.nombre} </td>
-                      <td> {item.categoria} </td>
-                      <td> {item.stock} </td>
-                      <td> {item.precio} </td>
-                      <td>
-                        <ModalEdit id={item._id} nombre={item.nombre}  categoria={item.categoria} stock={item.stock}  precio={item.precio} img={item.img} descripcion={item.descripcion} />
-                      </td>
-                      <td>
-                        <ModalDelete id={item._id} />
-                      </td>
-                    </tr>
-            )}
-
-            )
-
-          }
-
-
-
+            {post.map((item, i) => {
+              return (
+                <tr>
+                  <td key={item.id}> {item._id}</td>
+                  <td> {item.nombre} </td>
+                  <td> {item.categoria} </td>
+                  <td> {item.stock} </td>
+                  <td> {item.precio} </td>
+                  <td>
+                    <ModalEdit
+                      id={item._id}
+                      nombre={item.nombre}
+                      categoria={item.categoria}
+                      stock={item.stock}
+                      precio={item.precio}
+                      img={item.img}
+                      descripcion={item.descripcion}
+                    />
+                  </td>
+                  <td>
+                    <ModalDelete id={item._id} />
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </Table>
         <ModalAdd />
