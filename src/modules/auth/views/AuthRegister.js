@@ -1,15 +1,29 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { FormGroup, Button, Form, InputGroup } from 'react-bootstrap';
-
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 export default function AuthRegister() {
-  const onSubmitForm = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 400);
+  let history = useHistory();
+  const baseURL = 'http://localhost:3002/api/users/add';
+
+  const onSubmitForm = (values, { setSubmitting, resetForm }) => {
+    console.log(values);
+
+    axios
+      .post(baseURL, { ...values })
+      .then((resp) => {
+        resetForm();
+        history.push('/auth/login');
+      })
+      .catch((reason) => {
+        console.error('Error on AuthRegister:', reason);
+        alert('No se pudo registrar. Intente nuevamente más tarde');
+      });
+
+    setSubmitting(false);
   };
 
   const validationSchema = Yup.object().shape({
@@ -65,7 +79,6 @@ export default function AuthRegister() {
             /* and other goodies */
           }) => (
             <Form onSubmit={handleSubmit}>
-              {console.log(values)}
               <FormGroup className="row gap-3">
                 <InputGroup hasValidation className="col-6 col-md p-0">
                   <Form.Control
@@ -150,7 +163,11 @@ export default function AuthRegister() {
                   </Form.Control.Feedback>
                 </InputGroup>
 
-                <Button type="submit" className="text-white fw-bolder">
+                <Button
+                  type="submit"
+                  className="text-white fw-bolder"
+                  disabled={isSubmitting}
+                >
                   Continuar
                 </Button>
               </FormGroup>
