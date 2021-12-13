@@ -19,9 +19,8 @@ export default function AuthView() {
 
   return (
     <div className="content-footer">
+      <AuthHeader login={`${path}/login` === pathname} />
       <div>
-        <AuthHeader login={`${path}/login` === pathname} />
-        <h2>Auth View</h2>
         <Switch>
           <Route exact path={`${path}`}>
             <AuthHome />
